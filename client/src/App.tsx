@@ -7,7 +7,7 @@ import HoldingsTable from "./components/HoldingsTable";
 import AiPanel from "./components/AiPanel";
 import "./App.css";
 
-const API = "http://localhost:3001";
+const API = import.meta.env.VITE_API_URL || "http://localhost:3001";
 
 export default function App() {
   const [data, setData] = useState<PortfolioData | null>(null);

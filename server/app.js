@@ -153,5 +153,10 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => console.log(`PortfolioIQ API listening on http://localhost:${PORT}`));
+export default app;
+
+// Local dev: run a real listener. On Vercel the app is served as a function.
+if (!process.env.VERCEL) {
+  const PORT = process.env.PORT || 3001;
+  app.listen(PORT, () => console.log(`PortfolioIQ API listening on http://localhost:${PORT}`));
+}
